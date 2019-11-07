@@ -1,3 +1,4 @@
+//should we write new functions?
 Spaceship mySpaceship;
 public void setup() 
 {
@@ -10,6 +11,18 @@ public void draw()
   mySpaceship.show();
 }
 public void keyPressed(){
+	if(key == 'v'){
+		mySpaceship.turn(10);
+		mySpaceship.move();
+	}
+	if(key == 'b'){
+		mySpaceship.turn(-10);
+	}
+	if(key == 'n'){
+		mySpaceship.accelerate(0.5);
+	}
+	if(key == 'm'){
 
+	}
 }
 
