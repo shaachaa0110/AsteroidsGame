@@ -1,5 +1,5 @@
 class Spaceship extends Floater  
-{   
+{   //initialize variables
 	public Spaceship(){
 		myCenterX = 300;
     	myCenterY = 300;
@@ -79,6 +79,7 @@ class Spaceship extends Floater
       		vertex(xCorners[nI], yCorners[nI]);
     	}
     	endShape(CLOSE);
+    	//rocket shape overrides regular floater show function
     	if(/*rocketsfiring when accelerating, not just moving*/ key == 'b' || key == 'c' || key == 'v'){
     		//make fire rockets
     		fill(204, 102, 0);

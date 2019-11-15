@@ -1,4 +1,8 @@
+//initialize star array
 Star [] nightSky = new Star[100];
+//initialize universe array
+Universe[] myUniverse;
+//initialize spaceship object
 Spaceship mySpaceship;
 public void setup() 
 {
@@ -8,14 +12,23 @@ public void setup()
   for(int i = 0; i < nightSky.length; i++){
   	nightSky[i] = new Star();
   }
+  //make new array of universes which are arrays of particles
+  myUniverse = new Universe[1];
+	for(int i = 0; i<myUniverse.length; i++){
+		myUniverse[i] = new Universe();
+	}
 }
 public void draw() 
 {
   background(0);
   mySpaceship.move();
   mySpaceship.show();
+  stroke(0);
   for(int i = 0; i < nightSky.length; i++){
   	nightSky[i].show();
+  }
+  for(int i = 0; i < myUniverse.length; i++){
+		myUniverse[i].show();
   }
 }
 public void keyPressed(){
