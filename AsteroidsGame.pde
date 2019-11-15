@@ -11,7 +11,7 @@ public void setup()
 }
 public void draw() 
 {
-  background(255);
+  background(0);
   mySpaceship.move();
   mySpaceship.show();
   for(int i = 0; i < nightSky.length; i++){
