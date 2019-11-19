@@ -1,3 +1,4 @@
+//they dont turn, to start going in the direction you want, you have to accelerate in the direction you're now pointing, so you speed up
 class Floater //Do NOT modify the Floater class! Make changes in the Spaceship class 
 {   
   protected int corners;  //the number of corners, a triangular floater has 3   
