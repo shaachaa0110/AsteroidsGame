@@ -4,6 +4,9 @@ Star [] nightSky = new Star[100];
 Universe[] myUniverse;
 //initialize spaceship object
 Spaceship mySpaceship;
+//initalize asteroid arraylist
+ArrayList <Asteroid> asteroidList;
+
 public void setup() 
 {
   size(600, 600);
@@ -14,9 +17,14 @@ public void setup()
   }
   //make new array of universes which are arrays of particles
   myUniverse = new Universe[1];
-	for(int i = 0; i<myUniverse.length; i++){
+	for(int i = 0; i < myUniverse.length; i++){
 		myUniverse[i] = new Universe();
 	}
+  //make a new arraylist of asteroids
+  asteroidList = new ArrayList <Asteroid>();
+  for(int i = 0; i < 20; i++){
+  	asteroidList.add(new Asteroid());
+  }
 }
 public void draw() 
 {
@@ -29,6 +37,10 @@ public void draw()
   }
   for(int i = 0; i < myUniverse.length; i++){
 		myUniverse[i].show();
+  }
+  for(int i = 0; i < asteroidList.size(); i++){
+  	asteroidList.get(i).show();
+  	asteroidList.get(i).move();
   }
 }
 public void keyPressed(){
