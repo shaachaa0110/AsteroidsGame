@@ -19,11 +19,11 @@ class Asteroid extends Floater{
 		xCorners[5] = -16;
 		yCorners[5] = 0;
 		myColor = 200;
-		myCenterX = (int)(Math.random()*600);
-		myCenterY = (int)(Math.random()*600);
-		myDirectionX = (int)(Math.random()*6-3);
-		myDirectionY = (int)(Math.random()*6-3);
-		myPointDirection = (int)(Math.random()*5-3);
+		myCenterX = (Math.random()*600);
+		myCenterY = (Math.random()*600);
+		myDirectionX = (Math.random()*6-3);
+		myDirectionY = (Math.random()*6-3);
+		myPointDirection = (Math.random()*5-3);
 	}
 	public void move(){
 		turn(rotSpeed);
@@ -32,4 +32,10 @@ class Asteroid extends Floater{
 		//make this turn at it's own speed, each astreroid
 	}
 	//other getters and setters
+	public double getCenterX(){
+		return myCenterX;
+	}
+	public double getCenterY(){
+		return myCenterY;
+	}
 }

@@ -22,7 +22,7 @@ public void setup()
 	}
   //make a new arraylist of asteroids
   asteroidList = new ArrayList <Asteroid>();
-  for(int i = 0; i < 20; i++){
+  for(int i = 0; i < 15; i++){
   	asteroidList.add(new Asteroid());
   }
 }
@@ -39,8 +39,12 @@ public void draw()
 		myUniverse[i].show();
   }
   for(int i = 0; i < asteroidList.size(); i++){
-  	asteroidList.get(i).show();
-  	asteroidList.get(i).move();
+  	if(dist((int)(asteroidList.get(i).getCenterX()), (int)(asteroidList.get(i).getCenterY()), (int)(mySpaceship.getCenterX()), (int)(mySpaceship.getCenterY())) > 20){
+  		asteroidList.get(i).show();
+  		asteroidList.get(i).move();
+  	}else{
+  		asteroidList.remove(i);
+  	}
   }
 }
 public void keyPressed(){
