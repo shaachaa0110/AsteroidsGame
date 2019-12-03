@@ -6,6 +6,8 @@ Universe[] myUniverse;
 Spaceship mySpaceship;
 //initalize asteroid arraylist
 ArrayList <Asteroid> asteroidList;
+//new bullet
+Bullet myFirstBullet;
 
 public void setup() 
 {
@@ -25,6 +27,7 @@ public void setup()
   for(int i = 0; i < 15; i++){
   	asteroidList.add(new Asteroid());
   }
+  myFirstBullet = new Bullet(mySpaceship);
 }
 public void draw() 
 {
@@ -38,6 +41,7 @@ public void draw()
   for(int i = 0; i < myUniverse.length; i++){
 		myUniverse[i].show();
   }
+  //draws asteroids and removes them if they are hit by spaceship, maybe add an explosion class?
   for(int i = 0; i < asteroidList.size(); i++){
   	if(dist((int)(asteroidList.get(i).getCenterX()), (int)(asteroidList.get(i).getCenterY()), (int)(mySpaceship.getCenterX()), (int)(mySpaceship.getCenterY())) > 20){
   		asteroidList.get(i).show();
@@ -45,16 +49,18 @@ public void draw()
   	}else{
   		asteroidList.remove(i);
   	}
+  	//add a "you win, congrats!" at the end when asteroidsList.size() == 0, if that's the goal of our game
   }
+  myFirstBullet.show();
 }
 public void keyPressed(){
 	//should be a key listener
 	if(key == 'c'){
-		//turn left
+		//turn right
 		mySpaceship.turn(10);
 	}
 	if(key == 'v'){
-		//turn right
+		//turn left
 		mySpaceship.turn(-10);
 	}
 	if(key == 'b'){
