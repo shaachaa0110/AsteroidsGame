@@ -7,7 +7,7 @@ Spaceship mySpaceship;
 //initalize asteroid arraylist
 ArrayList <Asteroid> asteroidList;
 //new bullet
-Bullet myFirstBullet;
+ArrayList <Bullet> bulletList;
 
 public void setup() 
 {
@@ -27,7 +27,8 @@ public void setup()
   for(int i = 0; i < 15; i++){
   	asteroidList.add(new Asteroid());
   }
-  myFirstBullet = new Bullet(mySpaceship);
+  //make new arrayList of bullets
+  bulletList = new ArrayList <Bullet>();
 }
 public void draw() 
 {
@@ -51,7 +52,17 @@ public void draw()
   	}
   	//add a "you win, congrats!" at the end when asteroidsList.size() == 0, if that's the goal of our game
   }
-  myFirstBullet.show();
+  for(int i = 0; i < bulletList.size(); i++){
+    bulletList.get(i).show();
+    bulletList.get(i).move();
+    for(int j = 0; j < asteroidList.size(); j++){
+      if(dist((int)(asteroidList.get(j).getCenterX()), (int)(asteroidList.get(j).getCenterY()), (int)(bulletList.get(i).getCenterX()), (int)(bulletList.get(i).getCenterY())) < 7){
+        bulletList.remove(i);
+        asteroidList.remove(i);
+        break;
+      }
+    }
+  }
 }
 public void keyPressed(){
 	//should be a key listener
@@ -81,5 +92,9 @@ public void keyPressed(){
 		mySpaceship.setCenterX(centerDX);
 		mySpaceship.setCenterY(centerDY);
 	}
+  if(key == 'x'){
+    //shoot
+    bulletList.add(new Bullet(mySpaceship));
+  }
 }
 
