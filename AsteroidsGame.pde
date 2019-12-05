@@ -56,13 +56,19 @@ public void draw()
     bulletList.get(i).show();
     bulletList.get(i).move();
     for(int j = 0; j < asteroidList.size(); j++){
-      if(dist((int)(asteroidList.get(j).getCenterX()), (int)(asteroidList.get(j).getCenterY()), (int)(bulletList.get(i).getCenterX()), (int)(bulletList.get(i).getCenterY())) < 7){
+      if(dist((int)(asteroidList.get(j).getCenterX()), (int)(asteroidList.get(j).getCenterY()), (int)(bulletList.get(i).getCenterX()), (int)(bulletList.get(i).getCenterY())) < 10){
         bulletList.remove(i);
-        asteroidList.remove(i);
+        asteroidList.remove(j);
         break;
       }
     }
   }
+  //if(asteroidList.size() == 0){
+    background(255);
+    textSize(50);
+    fill(0);
+    text("Congrats! You win!", 75, 300);
+  //}
 }
 public void keyPressed(){
 	//should be a key listener
