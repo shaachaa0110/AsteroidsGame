@@ -8,6 +8,8 @@ Spaceship mySpaceship;
 ArrayList <Asteroid> asteroidList;
 //new bullet
 ArrayList <Bullet> bulletList;
+//AsteroidTwo ArrayList
+ArrayList <AsteroidTwo> asteroidTwoList;
 
 public void setup() 
 {
@@ -29,7 +31,10 @@ public void setup()
   }
   //make new arrayList of bullets
   bulletList = new ArrayList <Bullet>();
+  //new arraylist of asteroidTwo
+  asteroidTwoList = new ArrayList <AsteroidTwo>();
 }
+
 public void draw() 
 {
   background(0);
@@ -50,7 +55,6 @@ public void draw()
   	}else{
   		asteroidList.remove(i);
   	}
-  	//add a "you win, congrats!" at the end when asteroidsList.size() == 0, if that's the goal of our game
   }
   for(int i = 0; i < bulletList.size(); i++){
     bulletList.get(i).show();
@@ -59,17 +63,24 @@ public void draw()
       if(dist((int)(asteroidList.get(j).getCenterX()), (int)(asteroidList.get(j).getCenterY()), (int)(bulletList.get(i).getCenterX()), (int)(bulletList.get(i).getCenterY())) < 10){
         bulletList.remove(i);
         asteroidList.remove(j);
+        asteroidTwoList.add(new AsteroidTwo(asteroidList.get(j).getCenterX(), asteroidList.get(j).getCenterY()));
         break;
       }
     }
   }
-  //if(asteroidList.size() == 0){
+  for(int i = 0; i < asteroidTwoList.size(); i++){
+    asteroidTwoList.get(i).show();
+    asteroidTwoList.get(i).move();
+  }
+  //end message
+  if(asteroidList.size() == 0){
     background(255);
     textSize(50);
     fill(0);
     text("Congrats! You win!", 75, 300);
-  //}
+  }
 }
+
 public void keyPressed(){
 	//should be a key listener
 	if(key == 'c'){
