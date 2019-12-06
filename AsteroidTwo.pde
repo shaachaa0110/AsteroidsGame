@@ -1,6 +1,6 @@
 class AsteroidTwo extends Floater{
 	private int rotSpeed;
-	public AsteroidTwo(double x, double y){
+	public AsteroidTwo(){
 		//initialize all member variables of floater
 		rotSpeed = (int)(Math.random()*10+1);
 		corners = 6;
@@ -19,8 +19,8 @@ class AsteroidTwo extends Floater{
 		xCorners[5] = -8;
 		yCorners[5] = 0;
 		myColor = 200;
-		myCenterX = x;
-		myCenterY = y;
+		myCenterX = Math.random()*600;
+		myCenterY = Math.random()*600;
 		myDirectionX = (Math.random()*6-3);
 		myDirectionY = (Math.random()*6-3);
 		myPointDirection = (Math.random()*5-3);

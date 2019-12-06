@@ -63,7 +63,8 @@ public void draw()
       if(dist((int)(asteroidList.get(j).getCenterX()), (int)(asteroidList.get(j).getCenterY()), (int)(bulletList.get(i).getCenterX()), (int)(bulletList.get(i).getCenterY())) < 10){
         bulletList.remove(i);
         asteroidList.remove(j);
-        asteroidTwoList.add(new AsteroidTwo(asteroidList.get(j).getCenterX(), asteroidList.get(j).getCenterY()));
+        //these parameters don't quite work, should set center to x, y, but they are appearing randomly
+        asteroidTwoList.add(new AsteroidTwo());
         break;
       }
     }
@@ -72,8 +73,19 @@ public void draw()
     asteroidTwoList.get(i).show();
     asteroidTwoList.get(i).move();
   }
+  //removing smaller asteroids
+  for(int i = 0; i < bulletList.size(); i++){
+    for(int j = 0; j < asteroidTwoList.size(); j++){
+      if(dist((int)(asteroidTwoList.get(j).getCenterX()), (int)(asteroidTwoList.get(j).getCenterY()), (int)(bulletList.get(i).getCenterX()), (int)(bulletList.get(i).getCenterY())) < 10){
+        bulletList.remove(i);
+        asteroidTwoList.remove(j);
+        break;
+      }
+    }
+  }
+
   //end message
-  if(asteroidList.size() == 0){
+  if(asteroidList.size() == 0 && asteroidTwoList.size() == 0){
     background(255);
     textSize(50);
     fill(0);

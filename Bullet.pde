@@ -2,7 +2,6 @@ class Bullet extends Floater{
 	public Bullet(Spaceship mySpaceship){
 		myCenterX = mySpaceship.getCenterX();
 		myCenterY = mySpaceship.getCenterY();
-		System.out.println(myCenterX + ", " + myCenterY);
 		myPointDirection = mySpaceship.getPointDirection();
 		double dRadians = myPointDirection*(Math.PI/180);
 		myDirectionX = 5*Math.cos(dRadians) + mySpaceship.getDirectionX();
