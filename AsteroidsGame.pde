@@ -56,6 +56,13 @@ public void draw()
   		asteroidList.remove(i);
   	}
   }
+  //ship hitting small asteroids
+  for(int i = 0; i < asteroidTwoList.size(); i++){
+    if(dist((int)(asteroidTwoList.get(i).getCenterX()), (int)(asteroidTwoList.get(i).getCenterY()), (int)(mySpaceship.getCenterX()), (int)(mySpaceship.getCenterY())) < 20){
+        asteroidTwoList.remove(i);
+    }
+  }
+  //bullets to remove big asteroids
   for(int i = 0; i < bulletList.size(); i++){
     bulletList.get(i).show();
     bulletList.get(i).move();
@@ -69,11 +76,12 @@ public void draw()
       }
     }
   }
+  //showing smaller asteroids
   for(int i = 0; i < asteroidTwoList.size(); i++){
     asteroidTwoList.get(i).show();
     asteroidTwoList.get(i).move();
   }
-  //removing smaller asteroids
+  //bullets to removing smaller asteroids
   for(int i = 0; i < bulletList.size(); i++){
     for(int j = 0; j < asteroidTwoList.size(); j++){
       if(dist((int)(asteroidTwoList.get(j).getCenterX()), (int)(asteroidTwoList.get(j).getCenterY()), (int)(bulletList.get(i).getCenterX()), (int)(bulletList.get(i).getCenterY())) < 10){
