@@ -1,7 +1,5 @@
 class Asteroid extends Floater{
 	private int rotSpeed;
-	private boolean isExploding;
-	private int explodeTimer;
 	public Asteroid(){
 		//initialize all member variables of floater
 		rotSpeed = (int)(Math.random()*10+1);
